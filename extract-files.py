@@ -145,6 +145,8 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/libgarden_haltests_e2e.so'
      ): blob_fixup()
         .replace_needed('android.hardware.gnss-V1-ndk_platform.so', 'android.hardware.gnss-V1-ndk.so'),
+    ('vendor/lib64/libqcrilNr.so', 'vendor/lib64/libril-db.so'): blob_fixup()
+        .binary_regex_replace(rb'persist\.vendor\.radio\.poweron_opt', rb'persist.vendor.radio.poweron_ign'),
      'vendor/lib64/libqcrilNr.so' : blob_fixup()
         .replace_needed('vendor.oplus.hardware.appradioaidl-V1-ndk_platform.so', 'vendor.oplus.hardware.appradioaidl-V1-ndk.so')
         .replace_needed('vendor.oplus.hardware.ims-V1-ndk_platform.so', 'vendor.oplus.hardware.ims-V1-ndk.so'),
