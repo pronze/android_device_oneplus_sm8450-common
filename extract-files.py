@@ -87,6 +87,8 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
+    'odm/etc/gps.conf': blob_fixup()
+        .regex_replace('com.oplus.locationproxy', 'com.google.android.carrierlocation'),
     (
         'odm/bin/touchDaemon',
         'vendor/lib64/libdpps.so',
