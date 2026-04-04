@@ -95,6 +95,8 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/libvendorscenariopoweroptfeature.so'
     ): blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
+    'system_ext/lib64/libwfdservice.so': blob_fixup()
+        .replace_needed('android.media.audio.common.types-V2-cpp', 'android.media.audio.common.types-V4-cpp'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
