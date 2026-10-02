@@ -92,9 +92,13 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/libstandbyfeature.so',
         'vendor/lib64/libvendorscenariopoweroptfeature.so',
         'vendor/lib64/libvideooptfeature.so',
-        'vendor/bin/poweropt-service'
+        'vendor/bin/poweropt-service',
     ): blob_fixup()
-        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so')
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
+    'system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so': blob_fixup()
+        .replace_needed('libprotobuf-cpp-full.so', 'libprotobuf-cpp-full-21.7.so'),
+    'system_ext/bin/horae': blob_fixup()
+        .replace_needed('libprotobuf-cpp-lite.so', 'libprotobuf-cpp-lite-21.7.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
