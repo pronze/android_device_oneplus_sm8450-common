@@ -26,10 +26,10 @@ from extract_utils.utils import (
 )
 
 namespace_imports = [
-    'device/oneplus/sm8550-common',
+    'device/oneplus/sm8450-common',
     'hardware/oplus',
     'hardware/pixelworks/interfaces',
-    'hardware/qcom-caf/sm8550',
+    'hardware/qcom-caf/sm8450',
     'hardware/qcom-caf/wlan',
     'vendor/qcom/opensource/commonsys/display',
     'vendor/qcom/opensource/commonsys-intf/display',
@@ -148,7 +148,7 @@ blob_fixups: blob_fixups_user_type = {
 }  # fmt: skip
 
 module = ExtractUtilsModule(
-    'sm8550-common',
+    'sm8450-common',
     'oneplus',
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
