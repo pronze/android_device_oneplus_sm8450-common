@@ -214,6 +214,7 @@ vendor/firmware/CAMERA_ICP.mbn
 vendor/firmware/CAMERA_ICP.mdt
 vendor/firmware/CAMERA_ICP_170.elf
 vendor/firmware/CAMERA_ICP_480.elf
+vendor/firmware/tof8801_firwmare.bin
 
 # CDSP
 vendor/bin/cdsprpcd
