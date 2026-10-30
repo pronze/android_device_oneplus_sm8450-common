@@ -21,27 +21,43 @@ using android::init::InitPropertySet;
  * after the original property has been set.
  */
 void vendor_process_bootenv() {
-    auto hw_region_id = std::stoi(GetProperty("ro.boot.hw_region_id", "0"));
     auto prjname = std::stoi(GetProperty("ro.boot.prjname", "0"));
 
-    switch (hw_region_id) {
-        case 0: // aston IN
-            InitPropertySet("ro.boot.hardware.revision", "IN");
+    switch (prjname) {
+        // lunaa
+        case 21603: // CN
+            InitPropertySet("ro.product.product.model", "RMX3361");
             break;
-        case 21:
-            if (prjname == 22811 || prjname == 23801) { // aston/salami CN
-                InitPropertySet("ro.boot.hardware.revision", "CN");
-            } else if (prjname == 22861) { // salami IN
-                InitPropertySet("ro.boot.hardware.revision", "IN");
-            }
+        case 21675: // IN
+            InitPropertySet("ro.product.product.model", "RMX3360");
             break;
-        case 22: // aston/salami EU
-            InitPropertySet("ro.boot.hardware.revision", "EU");
+        case 21676: // EU
+            InitPropertySet("ro.product.product.model", "RMX3363");
             break;
-        case 23: // aston/salami NA
-            InitPropertySet("ro.boot.hardware.revision", "NA");
+        // martini
+        case 20820: // CN
+            InitPropertySet("ro.product.product.model", "MT2110");
+            break;
+        case 20821: // IN
+            InitPropertySet("ro.product.product.model", "MT2111");
+            break;
+        // wly
+        case 20846: // CN
+            InitPropertySet("ro.product.product.model", "NE2210");
+            break;
+        case 20847: // EU
+            InitPropertySet("ro.product.product.model", "NE2213");
+            break;
+        case 20848: // IN
+            InitPropertySet("ro.product.product.model", "NE2211");
+            break;
+        case 20849: // US
+            InitPropertySet("ro.product.product.model", "NE2215");
+            break;
+        case 0x2084A: // TMO
+            InitPropertySet("ro.product.product.model", "NE2217");
             break;
         default:
-            LOG(ERROR) << "Unexpected region ID: " << hw_region_id;
+            LOG(ERROR) << "Unexpected project name: " << prjname;
     }
 }
