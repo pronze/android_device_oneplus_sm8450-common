@@ -69,6 +69,9 @@ TARGET_VENDOR_PROP += $(COMMON_PATH)/properties/vendor.prop
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
 
+# Init
+TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):libinit_oplus
+
 # Kernel
 BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
