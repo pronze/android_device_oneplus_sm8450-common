@@ -11,7 +11,6 @@ AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
     boot \
     dtbo \
-    init_boot \
     odm \
     product \
     recovery \
@@ -29,8 +28,9 @@ AB_OTA_PARTITIONS += \
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a-branchpot
 TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := generic
-TARGET_CPU_VARIANT_RUNTIME := cortex-a76
+TARGET_CPU_VARIANT_RUNTIME := kryo300
 
 # Audio
 AUDIO_FEATURE_ENABLED_DLKM := true
@@ -69,10 +69,6 @@ TARGET_VENDOR_PROP += $(COMMON_PATH)/properties/vendor.prop
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
 
-# Init Boot
-BOARD_INIT_BOOT_HEADER_VERSION := 4
-BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
-
 # Kernel
 BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
@@ -98,7 +94,7 @@ TARGET_KERNEL_CONFIG := \
 
 # Kernel modules
 BOARD_SYSTEM_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.system_dlkm))
-BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(TARGET_KERNEL_SOURCE)/modules.vendor_blocklist.msm.kalama
+BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(TARGET_KERNEL_SOURCE)/modules.vendor_blocklist.msm.waipio
 BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load))
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE)
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.first_stage))
@@ -106,7 +102,7 @@ BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMO
 BOOT_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.include.vendor_ramdisk $(COMMON_PATH)/modules.load.first_stage $(COMMON_PATH)/modules.load.recovery))
 SYSTEM_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.include.system_dlkm))
 
-TARGET_KERNEL_EXT_MODULE_ROOT := kernel/oneplus/sm8550-modules
+TARGET_KERNEL_EXT_MODULE_ROOT := kernel/oneplus/sm8450-modules
 TARGET_KERNEL_EXT_MODULES := \
     qcom/opensource/mmrm-driver \
     qcom/opensource/mm-drivers/hw_fence \
@@ -146,7 +142,6 @@ BOARD_PRODUCTIMAGE_MINIMAL_PARTITION_RESERVED_SIZE := false
 -include vendor/lineage/config/BoardConfigReservedSize.mk
 BOARD_BOOTIMAGE_PARTITION_SIZE := 201326592
 BOARD_DTBOIMG_PARTITION_SIZE := 25165824
-BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 8388608
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 233871900672
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 201326592
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 104857600
@@ -170,7 +165,7 @@ TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
 
 # Recovery
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
-TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/init/fstab.default
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/init/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
@@ -179,7 +174,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Security
-BOOT_SECURITY_PATCH := 2026-09-01
+BOOT_SECURITY_PATCH := 2026-06-01
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
 # SEPolicy
@@ -240,4 +235,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Include the proprietary files BoardConfig.
-include vendor/oneplus/sm8550-common/BoardConfigVendor.mk
+include vendor/oneplus/sm8450-common/BoardConfigVendor.mk

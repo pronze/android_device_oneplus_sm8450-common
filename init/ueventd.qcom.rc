@@ -190,9 +190,6 @@ subsystem mem_buf_vm
 /dev/cvp*                 0660   system     camera
 /dev/media*               0660   system     camera
 /dev/v4l-subdev*          0660   system     camera
-/dev/hdmi_bdg_irq_handler 0660   system     camera
-/dev/hdmi_bdg_uxe_irq_handler 0660   system     camera
-/dev/dp_bdg_irq_handler   0660   system     camera
 /dev/qseecom              0660   system     drmrpc
 /dev/qce                  0660   system     drmrpc
 /dev/smcinvoke            0660   system     drmrpc
@@ -265,7 +262,6 @@ subsystem mem_buf_vm
 /sys/devices/platform/soc/1c00000.qcom,pcie/pci0000:00/0000:00:00.0/0000:01:00.0/net/wlan*/queues/rx-* rps_cpus      0660   system     system
 /dev/spidev0.0            0660   system     audio
 /dev/i2c-7                0660   system     audio
-/dev/msm_lsm_cdev         0660   system     audio
 /dev/msm_camera/*         0660   system     camera
 /dev/gemini/              0660   system     camera
 /dev/mercury0             0660   system     camera
@@ -385,6 +381,14 @@ subsystem mem_buf_vm
 /sys/devices/soc/600000.qcom,pcie/pci0000:00/0000:00:00.0/0000:01:00.0/net/wlan0/queues/rx-* rps_cpus 0660 system system
 /sys/devices/soc/600000.qcom,pcie/pci0000:00/0000:00:00.0/0000:01:00.0/net/p2p0/queues/rx-* rps_cpus 0660 system system
 
+# wigig
+/sys/bus/pci/drivers/wil6210* 0000:01:00.0/wil6210/fst_link_loss 0660 wifi wifi
+/sys/bus/pci/drivers/wil6210* 0000:01:00.0/wil6210/thermal_throttling 0660 system system
+/sys/bus/pci/drivers/wil6210* 0000:01:00.0/wil6210/snr_thresh 0660 wifi wifi
+/sys/bus/pci/drivers/wil6210* 0000:01:00.0/net/wigig0/queues/rx-0/rps_cpus 0660 system system
+/sys/bus/pci/drivers/wil6210* 0000:01:00.0/net/wigig0/gro_flush_timeout 0660 system system
+/sys/devices/virtual/net/bond0 queues/rx-0/rps_cpus 0660 system system
+
 #nfc permissions
 /dev/nfc-nci              0660    nfc         nfc
 /dev/nq-nci               0660    nfc         nfc
@@ -467,6 +471,8 @@ subsystem mem_buf_vm
 #Haptics class devices
 /sys/class/qcom-haptics    visense_enabled     0400    system    system
 /sys/class/qcom-haptics    primitive_duration  0600    system    system
+/sys/class/qcom-haptics    v_gain_error        0640    system    audio
+/sys/class/qcom-haptics    i_gain_error        0640    system    audio
 
 # NPU device
 /dev/msm_npu             0644   system     system
@@ -599,10 +605,6 @@ subsystem mem_buf_vm
 
 # devcoredump data attributes
 /sys/class/devcoredump/devcd*                           data                            0600    system  system
-
-# hdmi cec hal
-/dev/cec*                                            0660    system  system
-/sys/devices/platform/soc/984000.i2c/i2c-0/0-002b    get_hpd_stat    0660   system   system
 
 #Virtualization Attributes
 /dev/gunyah                 0666   root     root
