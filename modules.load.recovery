@@ -9,7 +9,7 @@ cdsprm.ko
 core_hang_detect.ko
 cpu_voltage_cooling.ko
 ddr_cdev.ko
-debugcc-kalama.ko
+debugcc-waipio.ko
 dmesg_dumper.ko
 dump_reason.ko
 ehset.ko
@@ -18,7 +18,7 @@ frpc-adsprpc.ko
 gh_tlmm_vm_mem_access.ko
 glink_pkt.ko
 glink_probe.ko
-gpucc-kalama.ko
+gpucc-waipio.ko
 haptic.ko
 hvc_gunyah.ko
 i3c-master-msm-geni.ko
