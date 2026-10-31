@@ -71,14 +71,11 @@ lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
     (
         'com.qualcomm.qti.dpm.api@1.0',
-        'libQnnCpu',
-        'libQnnHtp',
-        'libQnnHtpPrepare',
-        'libQnnHtpV73Stub',
         'libpwirisfeature',
         'libpwirishalwrapper',
         'vendor.qti.diaghal@1.0',
         'vendor.qti.hardware.dpmservice@1.0',
+        'vendor.qti.hardware.dpmservice@1.1',
         'vendor.qti.hardware.qccsyshal@1.0',
         'vendor.qti.hardware.qccsyshal@1.1',
         'vendor.qti.hardware.qccsyshal@1.2',
@@ -92,34 +89,24 @@ lib_fixups: lib_fixups_user_type = {
 blob_fixups: blob_fixups_user_type = {
     (
         'odm/bin/touchDaemon',
-        'odm/bin/hw/vendor.oplus.hardware.biometrics.fingerprint@2.1-service_uff',
         'vendor/lib64/libdpps.so',
-        'vendor/lib64/libsnapdragoncolor-manager.so'
+        'vendor/lib64/libsnapdragoncolor-manager.so',
+        'vendor/lib64/liblearningmodule.so'
     ): blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
-    'odm/bin/hw/vendor.oplus.hardware.biometrics.face@1.0-service': blob_fixup()
-        .add_needed('libbase_shim.so')
-        .clear_symbol_version('_ZN7android4base4TrimERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE'),
+    'odm/bin/hw/vendor.oplus.hardware.biometrics.fingerprint@2.1-service' : blob_fixup()
+        .replace_needed('android.hardware.biometrics.common-V1-ndk_platform.so', 'android.hardware.biometrics.common-V1-ndk.so')
+        .replace_needed('android.hardware.biometrics.fingerprint-V1-ndk_platform.so', 'android.hardware.biometrics.fingerprint-V1-ndk.so'),
     'odm/bin/hw/vendor.oplus.hardware.biometrics.fingerprint@2.1-service_uff': blob_fixup()
         .add_needed('libshims_aidl_fingerprint_v2.oplus.so'),
-    'odm/bin/hw/vendor.oplus.hardware.charger-V11-service': blob_fixup()
+    'odm/bin/hw/vendor.oplus.hardware.charger-V10-service': blob_fixup()
         .add_needed('libbase_shim.so'),
     'odm/etc/init/init.network.rc': blob_fixup()
         .regex_replace(r'/\* (Huo\.Chen@SYSTEM\.RF, 2024/09/06, Add for ICC) \*/', r'# \1'),
     (
-        'odm/lib64/c2.dolby.client.so',
         'vendor/lib64/libqcodec2_core.so'
     ): blob_fixup()
         .add_needed('libcodec2_shim.so'),
-    (
-        'odm/lib64/c2.dolby.hevc.dec.so',
-        'odm/lib64/c2.dolby.hevc.sec.dec.so',
-    ): blob_fixup()
-        .add_needed('libcodec2_shim.so')
-        .call(blob_fixup_graphic_buffer_size)
-        .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so'),
-    'odm/lib64/libdolbydecoderprocessor.so': blob_fixup()
-        .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so'),
     'product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml': blob_fixup()
         .regex_replace('/my_product', '/product'),
     'system_ext/bin/horae': blob_fixup()
@@ -132,9 +119,15 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libprotobuf-cpp-full.so', 'libprotobuf-cpp-full-21.7.so'),
     'vendor/bin/hw/android.hardware.contexthub-service.qmi': blob_fixup()
         .replace_needed('libbase.so', 'libbase-v33.so'),
-    ('vendor/bin/hw/android.hardware.security.keymint-service-qti', 'vendor/lib64/libqtikeymint.so'): blob_fixup()
-        .add_needed('android.hardware.security.rkp-V3-ndk.so'),
-    'vendor/etc/media_codecs_kalama.xml': blob_fixup()
+     (
+        'vendor/bin/hw/android.hardware.security.keymint-service-qti',
+        'vendor/lib64/libqtikeymint.so'
+     ): blob_fixup()
+        .add_needed('android.hardware.security.rkp-V3-ndk.so')
+        .replace_needed('android.hardware.security.sharedsecret-V1-ndk_platform.so', 'android.hardware.security.sharedsecret-V1-ndk.so')
+        .replace_needed('android.hardware.security.secureclock-V1-ndk_platform.so', 'android.hardware.security.secureclock-V1-ndk.so')
+        .replace_needed('android.hardware.security.keymint-V1-ndk_platform.so', 'android.hardware.security.keymint-V1-ndk.so'),
+    'vendor/etc/media_codecs_taro.xml': blob_fixup()
         .regex_replace('.*media_codecs_(google_audio|google_c2|google_telephony|google_video).*\n', '')
         .regex_replace('media_codecs_vendor_audio', 'media_codecs_dolby_vision'),
     'vendor/etc/seccomp_policy/qwesd@2.0.policy': blob_fixup()
@@ -143,7 +136,21 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so'),
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
         .add_needed('libhidlbase_shim.so'),
-}  # fmt: skip
+     (
+        'vendor/bin/hw/android.hardware.gnss-aidl-service-qti',
+        'vendor/lib64/hw/android.hardware.gnss-aidl-impl-qti.so',
+        'vendor/lib64/libgarden.so',
+        'vendor/lib64/libgarden_haltests_e2e.so'
+     ): blob_fixup()
+        .replace_needed('android.hardware.gnss-V1-ndk_platform.so', 'android.hardware.gnss-V1-ndk.so'),
+     'vendor/lib64/libqcrilNr.so' : blob_fixup()
+        .replace_needed('vendor.oplus.hardware.appradioaidl-V1-ndk_platform.so', 'vendor.oplus.hardware.appradioaidl-V1-ndk.so')
+        .replace_needed('vendor.oplus.hardware.ims-V1-ndk_platform.so', 'vendor.oplus.hardware.ims-V1-ndk.so'),
+     'odm/bin/hw/vendor.oplus.hardware.biometrics.face@1.0-service' : blob_fixup()
+        .replace_needed('android.hardware.biometrics.common-V1-ndk_platform.so', 'android.hardware.biometrics.common-V1-ndk.so')
+        .replace_needed('android.hardware.biometrics.face-V1-ndk_platform.so', 'android.hardware.biometrics.face-V1-ndk.so')
+
+}  # mt: skip
 
 module = ExtractUtilsModule(
     'sm8450-common',
