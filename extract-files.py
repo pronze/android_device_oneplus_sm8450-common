@@ -74,7 +74,7 @@ lib_fixups: lib_fixups_user_type = {
         'libQnnCpu',
         'libQnnHtp',
         'libQnnHtpPrepare',
-        'libQnnHtpV73Stub',
+        'libQnnHtpV69Stub',
         'libpwirisfeature',
         'libpwirishalwrapper',
         'vendor.qti.diaghal@1.0',
@@ -107,19 +107,9 @@ blob_fixups: blob_fixups_user_type = {
     'odm/etc/init/init.network.rc': blob_fixup()
         .regex_replace(r'/\* (Huo\.Chen@SYSTEM\.RF, 2024/09/06, Add for ICC) \*/', r'# \1'),
     (
-        'odm/lib64/c2.dolby.client.so',
         'vendor/lib64/libqcodec2_core.so'
     ): blob_fixup()
         .add_needed('libcodec2_shim.so'),
-    (
-        'odm/lib64/c2.dolby.hevc.dec.so',
-        'odm/lib64/c2.dolby.hevc.sec.dec.so',
-    ): blob_fixup()
-        .add_needed('libcodec2_shim.so')
-        .call(blob_fixup_graphic_buffer_size)
-        .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so'),
-    'odm/lib64/libdolbydecoderprocessor.so': blob_fixup()
-        .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so'),
     'product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml': blob_fixup()
         .regex_replace('/my_product', '/product'),
     'system_ext/bin/horae': blob_fixup()
@@ -134,7 +124,7 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libbase.so', 'libbase-v33.so'),
     ('vendor/bin/hw/android.hardware.security.keymint-service-qti', 'vendor/lib64/libqtikeymint.so'): blob_fixup()
         .add_needed('android.hardware.security.rkp-V3-ndk.so'),
-    'vendor/etc/media_codecs_kalama.xml': blob_fixup()
+    'vendor/etc/media_codecs_taro.xml': blob_fixup()
         .regex_replace('.*media_codecs_(google_audio|google_c2|google_telephony|google_video).*\n', '')
         .regex_replace('media_codecs_vendor_audio', 'media_codecs_dolby_vision'),
     'vendor/etc/seccomp_policy/qwesd@2.0.policy': blob_fixup()
