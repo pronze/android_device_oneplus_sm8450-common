@@ -45,6 +45,7 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio-impl \
     android.hardware.soundtrigger@2.3-impl \
     audio.bluetooth.default \
+    audio.primary.taro \
     audio.r_submix.default \
     audio.usb.default \
     audioadsprpcd \
@@ -74,7 +75,7 @@ QCV_FAMILY_SKUS := cape taro
 PRODUCT_COPY_FILES += \
     $(CONFIG_HAL_SRC_DIR)/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_taro/audio_effects.conf \
     $(CONFIG_HAL_SRC_DIR)/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_taro/audio_effects.xml \
-    $(CONFIG_PAL_SRC_DIR)/card-defs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/card-defs.xml \
+    $(CONFIG_HAL_SRC_DIR)/card-defs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/card-defs.xml \
     $(CONFIG_HAL_SRC_DIR)/microphone_characteristics.xml:$(TARGET_COPY_OUT_VENDOR)/etc/microphone_characteristics.xml \
     $(CONFIG_PAL_SRC_DIR)/usecaseKvManager.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usecaseKvManager.xml \
     $(LOCAL_PATH)/configs/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
@@ -135,10 +136,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
-
-# Dolby Vision
-PRODUCT_PACKAGES += \
-    dolbycodec2
 
 # Doze
 PRODUCT_PACKAGES += \
@@ -205,9 +202,9 @@ PRODUCT_PACKAGES += \
     fstab.qcom.vendor_ramdisk \
     init.class_main.sh \
     init.kernel.post_boot.sh \
-    init.kernel.post_boot-kalama.sh \
+    init.kernel.post_boot-taro.sh \
     init.oplus.hw.rc \
-    init.oplus.hw.rc.recovery \
+    init.oplus.hw.recovery.rc \
     init.oplus.rc \
     init.qcom.early_boot.sh \
     init.qcom.rc \
