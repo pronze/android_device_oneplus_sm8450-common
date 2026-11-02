@@ -108,9 +108,6 @@ SYSTEM_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.include.syst
 TARGET_KERNEL_EXT_MODULE_ROOT := kernel/oneplus/sm8450-modules
 TARGET_KERNEL_EXT_MODULES := \
     qcom/opensource/mmrm-driver \
-    qcom/opensource/mm-drivers/hw_fence \
-    qcom/opensource/mm-drivers/msm_ext_display \
-    qcom/opensource/mm-drivers/sync_fence \
     qcom/opensource/audio-kernel \
     qcom/opensource/camera-kernel \
     qcom/opensource/dataipa/drivers/platform/msm \
@@ -122,15 +119,10 @@ TARGET_KERNEL_EXT_MODULES := \
     qcom/opensource/datarmnet-ext/perf_tether \
     qcom/opensource/datarmnet-ext/sch \
     qcom/opensource/datarmnet-ext/wlan \
-    qcom/opensource/securemsm-kernel \
     qcom/opensource/display-drivers/msm \
     qcom/opensource/eva-kernel \
     qcom/opensource/video-driver \
-    qcom/opensource/graphics-kernel \
-    qcom/opensource/wlan/platform \
-    qcom/opensource/wlan/qcacld-3.0/.kiwi_v2 \
-    qcom/opensource/bt-kernel \
-    nxp/opensource/driver \
+    qcom/opensource/wlan/qcacld-3.0/.qca6490 \
     oplus/kernel/explorer
 
 # Platform
