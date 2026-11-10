@@ -57,6 +57,7 @@ BOARD_RAMDISK_USE_LZ4 := true
 
 # DTB / DTBO
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_USES_QCOM_MERGE_DTBS_SCRIPT := true
 TARGET_NEEDS_DTBOIMAGE := true
 
@@ -76,10 +77,12 @@ TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):libinit_oplus
 BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
     androidboot.memcg=1 \
-    androidboot.usbcontroller=a600000.dwc3
+    androidboot.usbcontroller=a600000.dwc3 \
+    androidboot.selinux=permissive
 
 BOARD_KERNEL_CMDLINE := \
-    nosoftlockup
+    nosoftlockup \
+    printk.devkmsg=on
 
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
 BOARD_KERNEL_BASE := 0x00000000
