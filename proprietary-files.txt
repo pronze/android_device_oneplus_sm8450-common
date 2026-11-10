@@ -403,20 +403,20 @@ vendor/etc/display/advanced_sf_offsets.xml
 vendor/etc/display/thermallevel_to_fps.xml
 vendor/lib64/libbacklight-calib.so
 vendor/lib64/libdigital-dimming.so
+vendor/lib64/libdisplayqos.so
 vendor/lib64/libhdr_backlight_adapter.so
 vendor/lib64/libqrtrclient.so
+vendor/lib64/libqseed3.so
+vendor/lib64/librcmask.so
+vendor/lib64/libsdm-color.so
+vendor/lib64/libsdm-colormgr-algo.so
+vendor/lib64/libsdm-disp-vndapis.so
+vendor/lib64/libtestutils.so
+vendor/lib64/libtinyxml2_1.so
 
 # Display (SDM) - from ingot (UKQ1.240227.165)
-vendor/lib64/libsdm-disp-vndapis.so|169adaa522f75d622e76a1597c486eff4551c5a3
 vendor/lib64/libdisplayskuutils.so|405e2456d79c8e0118efb9ade2d8a8d82565af5c
-vendor/lib64/librcmask.so|36919cfe71e1e6ab4e507f98dab320b7046d24c4
-vendor/lib64/libdisplayqos.so|f5620aafca45f8f5c89e5af5d808bd20602a4654
 vendor/lib64/libsdmextension.so|08d321d3e0da2231a29e3ec92604dca48c8895e3
-vendor/lib64/libtestutils.so|61b98f252afde4eb7c674de870e7afb590c9bb2a
-vendor/lib64/libsdm-color.so|3ffdac82ec83cfcf0cfab32718a08500ec73e36d
-vendor/lib64/libsdm-colormgr-algo.so|0c922b88dc8f11a9c8dbe78daec337d4d5333087
-vendor/lib64/libqseed3.so|6fcc4cb419053b57fc14d7cb2e3fdb18901cc87e
-vendor/lib64/libtinyxml2_1.so|ae0c9190fd54c18a6c28dfccdfd29655abcb08de
 
 # Display postprocessing
 vendor/bin/hw/vendor.display.color@1.0-service
