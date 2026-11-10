@@ -513,8 +513,4 @@
         </interface>
         <fqname>@1.0::IQspmhal/default</fqname>
     </hal>
-    <sepolicy>
-        <version>32.0</version>
-    </sepolicy>
-    <kernel target-level="6"/>
 </manifest>
