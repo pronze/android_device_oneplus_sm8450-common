@@ -127,9 +127,8 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('android.hardware.security.sharedsecret-V1-ndk_platform.so', 'android.hardware.security.sharedsecret-V1-ndk.so')
         .replace_needed('android.hardware.security.secureclock-V1-ndk_platform.so', 'android.hardware.security.secureclock-V1-ndk.so')
         .replace_needed('android.hardware.security.keymint-V1-ndk_platform.so', 'android.hardware.security.keymint-V1-ndk.so'),
-    'vendor/etc/media_codecs_taro.xml': blob_fixup()
-        .regex_replace('.*media_codecs_(google_audio|google_c2|google_telephony|google_video).*\n', '')
-        .regex_replace('media_codecs_vendor_audio', 'media_codecs_dolby_vision'),
+    ('vendor/etc/media_codecs_cape.xml', 'vendor/etc/media_codecs_cape_vendor.xml', 'vendor/etc/media_codecs_taro.xml', 'vendor/etc/media_codecs_taro_vendor.xml'): blob_fixup()
+        .regex_replace('.*media_codecs_(google_audio|google_c2|google_telephony|vendor_audio).*\n', ''),
     'vendor/etc/seccomp_policy/qwesd@2.0.policy': blob_fixup()
         .add_line_if_missing('pipe2: 1'),
     'vendor/lib64/libcamera2ndk_vendor.so': blob_fixup()
