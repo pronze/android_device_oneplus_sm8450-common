@@ -17,10 +17,13 @@ vendor.audio.enable.mirrorlink=false
 vendor.audio.feature.a2dp_offload.enable=true
 vendor.audio.feature.afe_proxy.enable=true
 vendor.audio.feature.battery_listener.enable=true
+vendor.audio.feature.custom_stereo.enable=true
 vendor.audio.feature.dmabuf.cma.memory.enable=false
 vendor.audio.feature.handset.profile.disable=false
 vendor.audio.feature.hfp.enable=true
 vendor.audio.feature.kpi_optimize.enable=true
+vendor.audio.feature.spkr_prot.enable=true
+vendor.audio.feature.vbat.enable=true
 vendor.audio.hdr.record.enable=false
 vendor.audio.hw.aac.encoder=false
 vendor.audio.offload.buffer.size.kb=32
@@ -34,6 +37,10 @@ vendor.audio.use.sw.mpegh.decoder=true
 vendor.audio.volume.headset.gain.depcal=true
 vendor.qc2audio.suspend.enabled=true
 vendor.qc2audio.per_frame.flac.dec.enabled=true
+persist.vendor.audio.spv3.enable=true
+persist.vendor.audio.avs.afe_api_version=2
+persist.vendor.audio_hal.dsp_bit_width_enforce_mode=24
+
 
 # Bluetooth
 bluetooth.device.class_of_device=90,2,12
