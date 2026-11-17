@@ -96,9 +96,8 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     'odm/bin/hw/vendor.oplus.hardware.biometrics.fingerprint@2.1-service' : blob_fixup()
         .replace_needed('android.hardware.biometrics.common-V1-ndk_platform.so', 'android.hardware.biometrics.common-V1-ndk.so')
-        .replace_needed('android.hardware.biometrics.fingerprint-V1-ndk_platform.so', 'android.hardware.biometrics.fingerprint-V1-ndk.so'),
-    'odm/bin/hw/vendor.oplus.hardware.biometrics.fingerprint@2.1-service_uff': blob_fixup()
-        .add_needed('libshims_aidl_fingerprint_v2.oplus.so'),
+        .replace_needed('android.hardware.biometrics.fingerprint-V1-ndk_platform.so', 'android.hardware.biometrics.fingerprint-V1-ndk.so')
+        .add_needed('libshims_fingerprint.oplus.so'),
     'odm/bin/hw/vendor.oplus.hardware.charger-V10-service': blob_fixup()
         .add_needed('libbase_shim.so'),
     'odm/etc/init/init.network.rc': blob_fixup()
