@@ -32,11 +32,6 @@ PRODUCT_PACKAGES += \
     otapreopt_script \
     xbl_config_arb_check
 
-# Alert slider
-PRODUCT_PACKAGES += \
-    KeyHandler \
-    tri-state-key-calibrate
-
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@7.0-impl \
