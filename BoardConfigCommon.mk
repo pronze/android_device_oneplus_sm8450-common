@@ -74,12 +74,10 @@ TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):libinit_oplus
 BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
     androidboot.memcg=1 \
-    androidboot.usbcontroller=a600000.dwc3 \
-    androidboot.selinux=permissive
+    androidboot.usbcontroller=a600000.dwc3
 
 BOARD_KERNEL_CMDLINE := \
-    nosoftlockup \
-    printk.devkmsg=on
+    nosoftlockup
 
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
 BOARD_KERNEL_BASE := 0x00000000
