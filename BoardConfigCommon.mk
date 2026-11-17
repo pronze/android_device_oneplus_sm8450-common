@@ -123,7 +123,8 @@ TARGET_KERNEL_EXT_MODULES := \
     qcom/opensource/eva-kernel \
     qcom/opensource/video-driver \
     qcom/opensource/wlan/qcacld-3.0/.qca6490 \
-    oplus/kernel/explorer
+    oplus/kernel/explorer \
+    nxp/opensource/driver
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
