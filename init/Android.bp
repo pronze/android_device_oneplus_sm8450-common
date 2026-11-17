@@ -99,12 +99,6 @@ sh_binary {
 }
 
 sh_binary {
-    name: "init.kernel.post_boot-diwali.sh",
-    src: "init.kernel.post_boot-diwali.sh",
-    vendor: true,
-}
-
-sh_binary {
     name: "init.kernel.post_boot-cape.sh",
     src: "init.kernel.post_boot-cape.sh",
     vendor: true,
