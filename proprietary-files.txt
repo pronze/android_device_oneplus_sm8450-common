@@ -502,6 +502,8 @@ odm/bin/hw/vendor.oplus.hardware.biometrics.fingerprint@2.1-service
 odm/etc/init/vendor.oplus.hardware.biometrics.fingerprint@2.1-service.rc
 odm/etc/vintf/manifest/manifest_oplus_fingerprint.xml
 odm/lib64/libolc_vnd.so
+odm/lib64/anc.hal.so
+odm/bin/init.oplus.fingerprints.sh
 
 # Fingerprint Pay
 odm/bin/hw/vendor.oplus.hardware.biometrics.fingerprintpay@1.0-service
