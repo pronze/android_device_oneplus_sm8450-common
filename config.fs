@@ -49,13 +49,13 @@ value:2916
 [AID_VENDOR_THALES_AUTHSECRET]
 value:2917
 
-[vendor/bin/hw/android.hardware.security.keymint4-service.strongbox-nxp-qti]
+[vendor/bin/hw/android.hardware.security.keymint-service.strongbox-nxp]
 mode: 0755
 user: AID_VENDOR_NXP_STRONGBOX
 group: AID_SYSTEM
 caps: SYS_ADMIN SYS_NICE WAKE_ALARM
 
-[vendor/bin/hw/android.hardware.weaver-service.nxp-qti]
+[vendor/bin/hw/android.hardware.weaver-service.nxp]
 mode: 0755
 user: AID_VENDOR_NXP_WEAVER
 group: AID_SYSTEM
@@ -71,13 +71,13 @@ caps: SYS_ADMIN SYS_NICE WAKE_ALARM
 mode: 0755
 user: AID_VENDOR_THALES_STRONGBOX
 group: AID_SYSTEM
-caps: SYS_ADMIN SYS_NICE WAKE_ALARM
+caps: SYS_ADMIN SYS_NICE
 
 [vendor/bin/hw/android.hardware.weaver-service.thales]
 mode: 0755
 user: AID_VENDOR_THALES_WEAVER
 group: AID_SYSTEM
-caps: SYS_ADMIN SYS_NICE WAKE_ALARM
+caps: SYS_ADMIN SYS_NICE
 
 [vendor/bin/hw/android.hardware.authsecret-service.thales-qti]
 mode: 0755
@@ -217,7 +217,43 @@ user: AID_SYSTEM
 group: AID_SYSTEM
 caps: NET_BIND_SERVICE BLOCK_SUSPEND NET_ADMIN
 
-[vendor/bin/sensors.debug]
+[vendor/bin/slim_daemon]
+mode: 0755
+user:  AID_GPS
+group: AID_GPS
+caps: NET_BIND_SERVICE
+
+[system/vendor/bin/slim_daemon]
+mode: 0755
+user:  AID_GPS
+group: AID_GPS
+caps: NET_BIND_SERVICE
+
+[vendor/bin/loc_launcher]
+mode: 0755
+user:  AID_GPS
+group: AID_GPS
+caps: SETUID SETGID
+
+[system/vendor/bin/loc_launcher]
+mode: 0755
+user:  AID_GPS
+group: AID_GPS
+caps: SETUID SETGID
+
+[vendor/bin/lowi-server]
+mode: 0755
+user:  AID_GPS
+group: AID_GPS
+caps: NET_ADMIN
+
+[vendor/bin/xtwifi-client]
+mode: 0755
+user:  AID_GPS
+group: AID_GPS
+caps: 0
+
+[vendor/bin/sensors.qti]
 mode: 0755
 user: AID_SYSTEM
 group: AID_SYSTEM
@@ -257,16 +293,4 @@ caps: 0
 mode: 0771
 user: AID_MEDIA
 group: AID_MEDIA
-caps: 0
-
-[soccp_firmware/]
-mode: 0771
-user: AID_ROOT
-group: AID_SYSTEM
-caps: 0
-
-[dcp_firmware/]
-mode: 0771
-user: AID_ROOT
-group: AID_SYSTEM
 caps: 0
