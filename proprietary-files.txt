@@ -755,6 +755,9 @@ vendor/bin/init.qcom.post_boot.sh
 vendor/bin/init.qti.kernel.sh
 vendor/bin/vendor_modprobe.sh
 
+# Kernel - from (CPH2449_16.0.5.1301(EX01)) - Enable when using system_dlkm properly
+# vendor/bin/system_dlkm_modprobe.sh|1cfbf26d4bc283cb35296019c8d5d727996c9cc0
+
 # Keymint
 system_ext/etc/permissions/vendor-oplus-hardware-keymint.xml
 vendor/bin/hw/android.hardware.security.keymint-service-qti
