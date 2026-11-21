@@ -173,14 +173,14 @@ service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /system/vendor/etc/m
     group root
     disabled
 
-service gki.modprobe /vendor/bin/system_dlkm_modprobe.sh
-    class main
-    user root
-    group root system
-    disabled
-    stdio_to_kmsg
-    seclabel u:r:vendor_modprobe:s0
-    oneshot
+# service gki.modprobe /vendor/bin/system_dlkm_modprobe.sh
+#    class main
+#    user root
+#    group root system
+#    disabled
+#    stdio_to_kmsg
+#    seclabel u:r:vendor_modprobe:s0
+#    oneshot
 
 service vendor.modprobe /vendor/bin/vendor_modprobe.sh
     class main
